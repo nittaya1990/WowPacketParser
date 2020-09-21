@@ -89,7 +89,7 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             packet.ReadByteE<Class>("ClassID", idx);
             for (int i = 0; i < 3; i++)
                 packet.ReadByte("CustomDisplay", idx);
-            packet.ReadWoWString("Name", nameLen, idx);
+            packet.ReadWoWString_Sanitize("Name", nameLen, idx);
 
             for (int i = 0; i < itemCount; i++)
                 ReadInspectItemData(packet, idx, i);
@@ -112,21 +112,21 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
                     count[i] = (int)packet.ReadBits(7);
 
                 for (var i = 0; i < 5; ++i)
-                    packet.ReadWoWString("Name Declined", count[i], i);
+                    packet.ReadWoWString_Sanitize("Name Declined", count[i], i);
 
                 packet.ReadPackedGuid128("AccountID");
                 packet.ReadPackedGuid128("BnetAccountID");
                 packet.ReadPackedGuid128("Player Guid");
 
-                packet.ReadUInt64("GuildClubMemberID");
-                packet.ReadUInt32("VirtualRealmAddress");
+                packet.ReadUInt64_Sanitize("GuildClubMemberID");
+                packet.ReadUInt32_Sanitize("VirtualRealmAddress");
 
                 packet.ReadByteE<Race>("Race");
                 packet.ReadByteE<Gender>("Gender");
                 packet.ReadByteE<Class>("Class");
                 packet.ReadByte("Level");
 
-                packet.ReadWoWString("Name", bits15);
+                packet.ReadWoWString_Sanitize("Name", bits15);
             }
         }
 
@@ -134,7 +134,7 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
         {
             packet.ReadPackedGuid128("Guid", idx);
 
-            packet.ReadUInt64("GuildClubMemberID", idx);
+            packet.ReadUInt64_Sanitize("GuildClubMemberID", idx);
 
             packet.ReadByte("ListPosition", idx);
             var race = packet.ReadByteE<Race>("RaceID", idx);
@@ -198,7 +198,7 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
                 if (mailSenderLengths[j] > 1)
                     packet.ReadDynamicString("MailSender", mailSenderLengths[j], idx);
 
-            packet.ReadWoWString("Character Name", nameLength, idx);
+            packet.ReadWoWString_Sanitize("Character Name", nameLength, idx);
 
             if (firstLogin)
             {
@@ -384,7 +384,7 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             for (var i = 0; i < 3; i++)
                 packet.ReadByte("CustomDisplay", i);
 
-            packet.ReadWoWString("Name", nameLen);
+            packet.ReadWoWString_Sanitize("Name", nameLen);
 
             if (hasTemplateSet)
                 packet.ReadInt32("TemplateSetID");
