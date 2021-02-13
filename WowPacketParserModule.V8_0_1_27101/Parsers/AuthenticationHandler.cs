@@ -13,8 +13,8 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             packet.ReadUInt32("RegionID");
             packet.ReadUInt32("BattlegroupID");
             packet.ReadUInt32_Sanitize("RealmID");
-            packet.ReadBytes("LocalChallenge", 16);
-            packet.ReadBytes("Digest", 24);
+            packet.ReadBytes_Sanitize("LocalChallenge", 16);
+            packet.ReadBytes_Sanitize("Digest", 24);
             packet.ReadBit("UseIPv6");
 
             var realmJoinTicketSize = packet.ReadInt32();

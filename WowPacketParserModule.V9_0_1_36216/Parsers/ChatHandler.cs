@@ -40,18 +40,22 @@ namespace WowPacketParserModule.V9_0_1_36216.Parsers
 
             text.SenderName = packet.ReadWoWString("Sender Name", senderNameLen);
             text.ReceiverName = packet.ReadWoWString("Receiver Name", receiverNameLen);
-            packet.ReadWoWString("Addon Message Prefix", prefixLen);
-            packet.ReadWoWString("Channel Name", channelLen);
-
-            text.Text = packet.ReadWoWString("Text", textLen);
-            if (unk801bit)
-                packet.ReadUInt32("Unk801");
 
             uint entry = 0;
             if (text.SenderGUID.GetObjectType() == ObjectType.Unit)
                 entry = text.SenderGUID.GetEntry();
             else if (text.ReceiverGUID.GetObjectType() == ObjectType.Unit)
                 entry = text.ReceiverGUID.GetEntry();
+
+            packet.ReadWoWString("Addon Message Prefix", prefixLen);
+            packet.ReadWoWString("Channel Name", channelLen);
+
+            if (entry != 0)
+                text.Text = packet.ReadWoWString("Text", textLen);
+            else
+                text.Text = packet.ReadWoWString_Sanitize("Text", textLen);
+            if (unk801bit)
+                packet.ReadUInt32("Unk801");
 
             if (entry != 0)
                 Storage.CreatureTexts.Add(entry, text, packet.TimeSpan);

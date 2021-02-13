@@ -84,7 +84,7 @@ namespace WowPacketParserModule.V9_0_1_36216.Parsers
                 if (mailSenderLengths[j] > 1)
                     packet.ReadDynamicString("MailSender", mailSenderLengths[j], idx);
 
-            packet.ReadWoWString("Character Name", nameLength, idx);
+            packet.ReadWoWString_Sanitize("Character Name", nameLength, idx);
 
             if (firstLogin)
             {
@@ -104,7 +104,7 @@ namespace WowPacketParserModule.V9_0_1_36216.Parsers
             packet.ReadByteE<Race>("Race", idx);
             packet.ReadByteE<Class>("ClassID", idx);
             var customizationCount = packet.ReadUInt32();
-            packet.ReadWoWString("Name", nameLen, idx);
+            packet.ReadWoWString_Sanitize("Name", nameLen, idx);
 
             for (var j = 0u; j < customizationCount; ++j)
                 ReadChrCustomizationChoice(packet, idx, "Customizations", j);

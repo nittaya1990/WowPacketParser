@@ -75,8 +75,8 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             packet.ResetBitReader();
 
             packet.ReadInt32("Type");
-            packet.ReadWoWString("Prefix", prefixLen);
-            packet.ReadWoWString("Text", testLen);
+            packet.ReadWoWString_Sanitize("Prefix", prefixLen);
+            packet.ReadWoWString_Sanitize("Text", testLen);
         }
 
         [Parser(Opcode.CMSG_CHAT_ADDON_MESSAGE, ClientVersionBuild.V8_1_0_28724)]
@@ -88,8 +88,8 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             packet.ResetBitReader();
 
             packet.ReadInt32("Type");
-            packet.ReadWoWString("Prefix", prefixLen);
-            packet.ReadWoWString("Text", testLen);
+            packet.ReadWoWString_Sanitize("Prefix", prefixLen);
+            packet.ReadWoWString_Sanitize("Text", testLen);
         }
     }
 }
