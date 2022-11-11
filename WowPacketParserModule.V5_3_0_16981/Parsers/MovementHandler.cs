@@ -1,9 +1,12 @@
-﻿using WowPacketParser.Enums;
+﻿using Google.Protobuf.WellKnownTypes;
+using WowPacketParser.Enums;
 using WowPacketParser.Misc;
 using WowPacketParser.PacketStructures;
 using WowPacketParser.Parsing;
 using WowPacketParser.Proto;
 using CoreParsers = WowPacketParser.Parsing.Parsers;
+using MovementFlag = WowPacketParser.Enums.v4.MovementFlag;
+using MovementFlag2 = WowPacketParser.Enums.v4.MovementFlag2;
 
 namespace WowPacketParserModule.V5_3_0_16981.Parsers
 {
@@ -22,11 +25,12 @@ namespace WowPacketParserModule.V5_3_0_16981.Parsers
         [Parser(Opcode.SMSG_LOGIN_SET_TIME_SPEED)]
         public static void HandleLoginSetTimeSpeed(Packet packet)
         {
-            packet.ReadPackedTime("Game Time");
+            PacketLoginSetTimeSpeed setTime = packet.Holder.LoginSetTimeSpeed = new();
+            setTime.GameTime = packet.ReadPackedTime("Game Time").ToUniversalTime().ToTimestamp();
             packet.ReadUInt32("bit5");
             packet.ReadUInt32("bit7");
             packet.ReadUInt32("bit6");
-            packet.ReadSingle("Game Speed");
+            setTime.NewSpeed = packet.ReadSingle("Game Speed");
         }
 
         public static void ReadClientMovementBlock(Packet packet)
@@ -79,7 +83,7 @@ namespace WowPacketParserModule.V5_3_0_16981.Parsers
                 hasFallDirection = packet.ReadBit();
 
             if (hasExtraMovementFlags)
-                packet.ReadBitsE<MovementFlagExtra>("Extra Movement Flags", 13);
+                packet.ReadBitsE<MovementFlag2>("Extra Movement Flags", 13);
 
             packet.ResetBitReader();
 
@@ -335,7 +339,7 @@ namespace WowPacketParserModule.V5_3_0_16981.Parsers
             guid[5] = packet.ReadBit();
 
             if (hasExtraMovementFlags)
-                packet.ReadBitsE<MovementFlagExtra>("Extra Movement Flags", 13);
+                packet.ReadBitsE<MovementFlag2>("Extra Movement Flags", 13);
 
             var hasMovementFlags = !packet.ReadBit();
             packet.ReadBit("unk_bit");
@@ -445,7 +449,7 @@ namespace WowPacketParserModule.V5_3_0_16981.Parsers
         public static void HandlePhaseShift(Packet packet)
         {
             var phaseShift = packet.Holder.PhaseShift = new PacketPhaseShift();
-            CoreParsers.MovementHandler.ActivePhases.Clear();
+            CoreParsers.MovementHandler.ClearPhases();
 
             var guid = packet.StartBitStream(2, 6, 3, 1, 5, 7, 0, 4);
             packet.ReadXORBytes(guid, 5, 3, 0);
@@ -480,6 +484,8 @@ namespace WowPacketParserModule.V5_3_0_16981.Parsers
 
             packet.ReadXORBytes(guid, 6, 2, 1);
             phaseShift.Client = packet.WriteGuid("GUID", guid);
+
+            CoreParsers.MovementHandler.WritePhaseChanges(packet);
         }
     }
 }

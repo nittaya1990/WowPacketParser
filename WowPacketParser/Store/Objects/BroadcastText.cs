@@ -5,7 +5,7 @@ using WowPacketParser.SQL;
 namespace WowPacketParser.Store.Objects
 {
     [DBTableName("broadcast_text")]
-    public sealed class BroadcastText : IDataModel
+    public sealed record BroadcastText : IDataModel
     {
         public ushort?[] EmoteID;
         public ushort?[] EmoteDelay;
@@ -48,6 +48,9 @@ namespace WowPacketParser.Store.Objects
 
         [DBFieldName("ChatBubbleDurationMs", TargetedDatabase.BattleForAzeroth)]
         public uint? ChatBubbleDurationMs;
+
+        [DBFieldName("VoiceOverPriorityID", TargetedDatabase.Shadowlands)]
+        public uint? VoiceOverPriorityID;
 
         [DBFieldName("SoundEntriesID1", TargetedDatabase.Zero, TargetedDatabase.Shadowlands)]
         [DBFieldName("SoundKitID1", TargetedDatabase.Shadowlands)]

@@ -82,13 +82,14 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             var hasSplineFilter = packet.ReadBit("HasSplineFilter", indexes);
             var hasSpellEffectExtraData = packet.ReadBit("HasSpellEffectExtraData", indexes);
             var hasJumpExtraData = packet.ReadBit("HasJumpExtraData", indexes);
+
             var hasAnimTier = false;
-            var hasUnk901 = false;
-            if (ClientVersion.AddedInVersion(ClientType.Shadowlands) && !ClientVersion.IsBurningCrusadeClassicClientVersionBuild(ClientVersion.Build))
-            {
+            if (ClientVersion.AddedInVersion(ClientType.Shadowlands))
                 hasAnimTier = packet.ReadBit("HasAnimTierTransition", indexes);
-                hasUnk901 = packet.ReadBit("HasUnknown", indexes);
-            }
+
+            var hasUnk901 = false;
+            if (ClientVersion.AddedInVersion(ClientType.Shadowlands) && !ClientVersion.IsClassicClientVersionBuild(ClientVersion.Build))
+                hasUnk901 = packet.ReadBit("HasUnknown901", indexes);
 
             if (hasSplineFilter)
                 ReadMonsterSplineFilter(packet, indexes, "MonsterSplineFilter");
@@ -141,8 +142,8 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             if (hasAnimTier)
             {
                 packet.ReadInt32("TierTransitionID", indexes);
-                packet.ReadInt32("StartTime", indexes);
-                packet.ReadInt32("EndTime", indexes);
+                packet.ReadUInt32("StartTime", indexes);
+                packet.ReadUInt32("EndTime", indexes);
                 packet.ReadByte("AnimTier", indexes);
             }
 
@@ -206,7 +207,7 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
         public static void HandlePhaseShift(Packet packet)
         {
             var phaseShift = packet.Holder.PhaseShift = new PacketPhaseShift();
-            CoreParsers.MovementHandler.ActivePhases.Clear();
+            CoreParsers.MovementHandler.ClearPhases();
             phaseShift.Client = packet.ReadPackedGuid128("Client");
             // PhaseShiftData
             packet.ReadInt32E<PhaseShiftFlags>("PhaseShiftFlags");
@@ -217,16 +218,17 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
                 var flags = packet.ReadUInt16E<PhaseFlags>("PhaseFlags", i);
                 var id = packet.ReadUInt16();
                 phaseShift.Phases.Add(id);
-                
+
                 if (Settings.UseDBC && DBC.Phase.ContainsKey(id))
                 {
-                    packet.WriteLine($"[{i}] ID: {id} ({(DBCPhaseFlags)DBC.Phase[id].Flags})");
+                    packet.WriteLine($"[{i}] ID: {id} ({StoreGetters.GetName(StoreNameType.PhaseId, id, false)}) Flags: {(DBCPhaseFlags)DBC.Phase[id].Flags}");
                 }
                 else
-                    packet.AddValue("ID", id, i);
+                    packet.AddValue($"ID", id, i);
 
                 CoreParsers.MovementHandler.ActivePhases.Add(id, true);
             }
+
             if (DBC.Phases.Any())
             {
                 foreach (var phaseGroup in DBC.GetPhaseGroups(CoreParsers.MovementHandler.ActivePhases.Keys))
@@ -241,6 +243,8 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             var uiMapPhaseIdCount = packet.ReadInt32("UiMapPhaseIDsCount") / 2;
             for (var i = 0; i < uiMapPhaseIdCount; ++i)
                 phaseShift.UiMapPhase.Add((uint)packet.ReadInt16("UiMapPhaseId", i));
+
+            CoreParsers.MovementHandler.WritePhaseChanges(packet);
         }
 
         [Parser(Opcode.SMSG_MOVE_UPDATE_MOD_MOVEMENT_FORCE_MAGNITUDE)]

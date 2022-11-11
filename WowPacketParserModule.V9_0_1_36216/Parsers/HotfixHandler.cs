@@ -78,6 +78,8 @@ namespace WowPacketParserModule.V9_0_1_36216.Parsers
                             bct.EmotesID = db2File.ReadUInt16("EmotesID");
                             bct.Flags = db2File.ReadByte("Flags");
                             bct.ChatBubbleDurationMs = db2File.ReadUInt32("ChatBubbleDurationMs");
+                            if (ClientVersion.AddedInVersion(ClientVersionBuild.V9_2_0_42423))
+                                bct.VoiceOverPriorityID = db2File.ReadUInt32("VoiceOverPriorityID");
 
                             bct.SoundEntriesID = new uint?[2];
                             for (int i = 0; i < 2; ++i)
@@ -252,7 +254,7 @@ namespace WowPacketParserModule.V9_0_1_36216.Parsers
                         var optionalData = db2File.ReadBytes(24);
 
                         packet.AddValue($"(OptionalData) [{i}] Key:", hash);
-                        packet.AddValue($"(OptionalData) [{i}] OptionalData:", Utilities.ByteArrayToHexString(optionalData));
+                        packet.AddValue($"(OptionalData) [{i}] OptionalData:", Convert.ToHexString(optionalData));
 
                         HotfixOptionalData hotfixOptionalData = new HotfixOptionalData
                         {

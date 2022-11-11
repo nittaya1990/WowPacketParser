@@ -385,11 +385,56 @@ namespace WowPacketParser.Misc
             new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_1_5_41079, new DateTime(2021, 11, 18, 20, 05, 00)),
             new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_1_5_41288, new DateTime(2021, 12, 02, 03, 58, 02)),
             new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_1_5_41323, new DateTime(2021, 12, 03, 23, 35, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_1_5_41359, new DateTime(2021, 12, 07, 21, 31, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_1_5_41488, new DateTime(2021, 12, 16, 23, 36, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_1_5_41793, new DateTime(2022, 01, 08, 01, 21, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_1_5_42010, new DateTime(2022, 01, 22, 01, 14, 00)),
+
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42423, new DateTime(2022, 02, 23)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42488, new DateTime(2022, 02, 25)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42521, new DateTime(2022, 03, 01)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42538, new DateTime(2022, 03, 02, 03, 50, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42560, new DateTime(2022, 03, 03, 00, 55, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42614, new DateTime(2022, 03, 08, 15, 15, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42698, new DateTime(2022, 03, 12, 03, 18, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42852, new DateTime(2022, 03, 24, 21, 10, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42937, new DateTime(2022, 03, 29, 16, 20, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_42979, new DateTime(2022, 03, 30, 04, 05, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_43114, new DateTime(2022, 04, 08, 20, 00, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_43206, new DateTime(2022, 04, 14, 02, 10, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_43340, new DateTime(2022, 04, 22, 19, 32, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_0_43345, new DateTime(2022, 05, 03, 04, 18, 00)),
+
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_43903, new DateTime(2022, 06, 01, 02, 50, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_43971, new DateTime(2022, 05, 31, 16, 18, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_44015, new DateTime(2022, 06, 06, 21, 06, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_44061, new DateTime(2022, 06, 07, 16, 04, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_44127, new DateTime(2022, 06, 15, 03, 12, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_44232, new DateTime(2022, 06, 18, 02, 46, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_44325, new DateTime(2022, 06, 27, 20, 50, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_44730, new DateTime(2022, 07, 22, 20, 05, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_5_44908, new DateTime(2022, 08, 02, 16, 05, 00)),
+
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_7_45114, new DateTime(2022, 08, 16, 17, 50, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_7_45161, new DateTime(2022, 08, 19, 03, 24, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_7_45338, new DateTime(2022, 09, 08, 01, 05, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V9_2_7_45745, new DateTime(2022, 09, 22, 03, 04, 00)),
+
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46181, new DateTime(2022, 10, 20, 21, 30, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46293, new DateTime(2022, 10, 25, 16, 20, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46313, new DateTime(2022, 10, 26, 04, 45, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46340, new DateTime(2022, 10, 28, 00, 20, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46366, new DateTime(2022, 10, 30, 00, 50, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46455, new DateTime(2022, 11, 04, 00, 50, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46547, new DateTime(2022, 11, 08, 18, 20, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46549, new DateTime(2022, 11, 09, 01, 00, 00)),
+            new KeyValuePair<ClientVersionBuild, DateTime>(ClientVersionBuild.V10_0_0_46597, new DateTime(2022, 11, 10, 21, 34, 00)),
 
             // no classic info, pkt contain build in header
         };
 
         private static ClientType _expansion;
+        private static ClientBranch _branch;
 
         public static ClientVersionBuild Build { get; private set; }
 
@@ -770,7 +815,48 @@ namespace WowPacketParser.Misc
                 case ClientVersionBuild.V9_1_5_41079:
                 case ClientVersionBuild.V9_1_5_41288:
                 case ClientVersionBuild.V9_1_5_41323:
+                case ClientVersionBuild.V9_1_5_41359:
+                case ClientVersionBuild.V9_1_5_41488:
+                case ClientVersionBuild.V9_1_5_41793:
+                case ClientVersionBuild.V9_1_5_42010:
+                case ClientVersionBuild.V9_2_0_42423:
+                case ClientVersionBuild.V9_2_0_42488:
+                case ClientVersionBuild.V9_2_0_42521:
+                case ClientVersionBuild.V9_2_0_42538:
+                case ClientVersionBuild.V9_2_0_42560:
+                case ClientVersionBuild.V9_2_0_42614:
+                case ClientVersionBuild.V9_2_0_42698:
+                case ClientVersionBuild.V9_2_0_42852:
+                case ClientVersionBuild.V9_2_0_42937:
+                case ClientVersionBuild.V9_2_0_42979:
+                case ClientVersionBuild.V9_2_0_43114:
+                case ClientVersionBuild.V9_2_0_43206:
+                case ClientVersionBuild.V9_2_0_43340:
+                case ClientVersionBuild.V9_2_0_43345:
+                case ClientVersionBuild.V9_2_5_43903:
+                case ClientVersionBuild.V9_2_5_43971:
+                case ClientVersionBuild.V9_2_5_44015:
+                case ClientVersionBuild.V9_2_5_44061:
+                case ClientVersionBuild.V9_2_5_44127:
+                case ClientVersionBuild.V9_2_5_44232:
+                case ClientVersionBuild.V9_2_5_44325:
+                case ClientVersionBuild.V9_2_5_44730:
+                case ClientVersionBuild.V9_2_5_44908:
+                case ClientVersionBuild.V9_2_7_45114:
+                case ClientVersionBuild.V9_2_7_45161:
+                case ClientVersionBuild.V9_2_7_45338:
+                case ClientVersionBuild.V9_2_7_45745:
                     return ClientVersionBuild.V9_0_1_36216;
+                case ClientVersionBuild.V10_0_0_46181:
+                case ClientVersionBuild.V10_0_0_46293:
+                case ClientVersionBuild.V10_0_0_46313:
+                case ClientVersionBuild.V10_0_0_46340:
+                case ClientVersionBuild.V10_0_0_46366:
+                case ClientVersionBuild.V10_0_0_46455:
+                case ClientVersionBuild.V10_0_0_46547:
+                case ClientVersionBuild.V10_0_0_46549:
+                case ClientVersionBuild.V10_0_0_46597:
+                    return ClientVersionBuild.V10_0_0_46181;
                 //Classic
                 case ClientVersionBuild.V1_13_2_31446:
                 case ClientVersionBuild.V1_13_2_31650:
@@ -794,8 +880,10 @@ namespace WowPacketParser.Misc
                 case ClientVersionBuild.v1_13_4_34219:
                 case ClientVersionBuild.v1_13_4_34266:
                 case ClientVersionBuild.v1_13_4_34600:
+                case ClientVersionBuild.v1_13_4_34835:
                 case ClientVersionBuild.v1_13_5_34713:
                 case ClientVersionBuild.v1_13_5_34911:
+                case ClientVersionBuild.v1_13_5_35000:
                 case ClientVersionBuild.V1_13_5_35100:
                 case ClientVersionBuild.V1_13_5_35186:
                 case ClientVersionBuild.V1_13_5_35753:
@@ -817,6 +905,49 @@ namespace WowPacketParser.Misc
                 case ClientVersionBuild.V1_13_7_39605:
                 case ClientVersionBuild.V1_13_7_39692:
                     return ClientVersionBuild.V1_13_2_31446;
+                case ClientVersionBuild.V1_14_0_39802:
+                case ClientVersionBuild.V1_14_0_39958:
+                case ClientVersionBuild.V1_14_0_40140:
+                case ClientVersionBuild.V1_14_0_40179:
+                case ClientVersionBuild.V1_14_0_40237:
+                case ClientVersionBuild.V1_14_0_40347:
+                case ClientVersionBuild.V1_14_0_40441:
+                case ClientVersionBuild.V1_14_0_40618:
+                case ClientVersionBuild.V1_14_1_40487:
+                case ClientVersionBuild.V1_14_1_40594:
+                case ClientVersionBuild.V1_14_1_40666:
+                case ClientVersionBuild.V1_14_1_40688:
+                case ClientVersionBuild.V1_14_1_40800:
+                case ClientVersionBuild.V1_14_1_40818:
+                case ClientVersionBuild.V1_14_1_40926:
+                case ClientVersionBuild.V1_14_1_40962:
+                case ClientVersionBuild.V1_14_1_41009:
+                case ClientVersionBuild.V1_14_1_41030:
+                case ClientVersionBuild.V1_14_1_41077:
+                case ClientVersionBuild.V1_14_1_41137:
+                case ClientVersionBuild.V1_14_1_41243:
+                case ClientVersionBuild.V1_14_1_41511:
+                case ClientVersionBuild.V1_14_1_41794:
+                case ClientVersionBuild.V1_14_1_42032:
+                case ClientVersionBuild.V1_14_2_41858:
+                case ClientVersionBuild.V1_14_2_41959:
+                case ClientVersionBuild.V1_14_2_42065:
+                case ClientVersionBuild.V1_14_2_42082:
+                case ClientVersionBuild.V1_14_2_42214:
+                case ClientVersionBuild.V1_14_2_42597:
+                case ClientVersionBuild.V1_14_3_42770:
+                case ClientVersionBuild.V1_14_3_42926:
+                case ClientVersionBuild.V1_14_3_43037:
+                case ClientVersionBuild.V1_14_3_43086:
+                case ClientVersionBuild.V1_14_3_43154:
+                case ClientVersionBuild.V1_14_3_43401:
+                case ClientVersionBuild.V1_14_3_43639:
+                case ClientVersionBuild.V1_14_3_44016:
+                case ClientVersionBuild.V1_14_3_44170:
+                case ClientVersionBuild.V1_14_3_44403:
+                case ClientVersionBuild.V1_14_3_44834:
+                case ClientVersionBuild.V1_14_3_45437:
+                case ClientVersionBuild.V1_14_3_46575:
                 case ClientVersionBuild.V2_5_1_38598:
                 case ClientVersionBuild.V2_5_1_38644:
                 case ClientVersionBuild.V2_5_1_38707:
@@ -841,7 +972,44 @@ namespace WowPacketParser.Misc
                 case ClientVersionBuild.V2_5_2_40488:
                 case ClientVersionBuild.V2_5_2_40617:
                 case ClientVersionBuild.V2_5_2_40892:
+                case ClientVersionBuild.V2_5_2_41446:
+                case ClientVersionBuild.V2_5_2_41510:
+                case ClientVersionBuild.V2_5_3_41812:
+                case ClientVersionBuild.V2_5_3_42083:
+                case ClientVersionBuild.V2_5_3_42328:
+                case ClientVersionBuild.V2_5_3_42598:
+                case ClientVersionBuild.V2_5_4_42695:
+                case ClientVersionBuild.V2_5_4_42757:
+                case ClientVersionBuild.V2_5_4_42800:
+                case ClientVersionBuild.V2_5_4_42869:
+                case ClientVersionBuild.V2_5_4_42870:
+                case ClientVersionBuild.V2_5_4_42873:
+                case ClientVersionBuild.V2_5_4_42917:
+                case ClientVersionBuild.V2_5_4_42940:
+                case ClientVersionBuild.V2_5_4_43400:
+                case ClientVersionBuild.V2_5_4_43638:
+                case ClientVersionBuild.V2_5_4_43861:
+                case ClientVersionBuild.V2_5_4_44036:
+                case ClientVersionBuild.V2_5_4_44171:
+                case ClientVersionBuild.V2_5_4_44400:
+                case ClientVersionBuild.V2_5_4_44833:
                     return ClientVersionBuild.V2_5_1_38707;
+                case ClientVersionBuild.V3_4_0_45166:
+                case ClientVersionBuild.V3_4_0_45189:
+                case ClientVersionBuild.V3_4_0_45264:
+                case ClientVersionBuild.V3_4_0_45327:
+                case ClientVersionBuild.V3_4_0_45435:
+                case ClientVersionBuild.V3_4_0_45572:
+                case ClientVersionBuild.V3_4_0_45613:
+                case ClientVersionBuild.V3_4_0_45704:
+                case ClientVersionBuild.V3_4_0_45772:
+                case ClientVersionBuild.V3_4_0_45854:
+                case ClientVersionBuild.V3_4_0_45942:
+                case ClientVersionBuild.V3_4_0_46158:
+                case ClientVersionBuild.V3_4_0_46182:
+                case ClientVersionBuild.V3_4_0_46248:
+                case ClientVersionBuild.V3_4_0_46368:
+                    return ClientVersionBuild.V3_4_0_45166;
                 case ClientVersionBuild.BattleNetV37165:
                     return ClientVersionBuild.BattleNetV37165;
                 case ClientVersionBuild.Zero:
@@ -867,6 +1035,9 @@ namespace WowPacketParser.Misc
                     return ClientVersionBuild.V8_0_1_27101;
                 case ClientVersionBuild.V2_5_1_38707:
                     return ClientVersionBuild.V9_0_1_36216;
+                case ClientVersionBuild.V3_4_0_45166:
+                    return ClientVersionBuild.V2_5_1_38707;
+
                 case ClientVersionBuild.V7_0_3_22248:
                     return ClientVersionBuild.V6_0_2_19033;
                 case ClientVersionBuild.V8_0_1_27101:
@@ -875,6 +1046,8 @@ namespace WowPacketParser.Misc
                     if (IsClassicClientVersionBuild(originalDefiningBuild))
                         return ClientVersionBuild.V1_13_2_31446;
                     return ClientVersionBuild.V8_0_1_27101;
+                case ClientVersionBuild.V10_0_0_46181:
+                    return ClientVersionBuild.V9_0_1_36216;
                 default:
                     return ClientVersionBuild.Zero;
             }
@@ -890,8 +1063,15 @@ namespace WowPacketParser.Misc
         {
             if (IsClassicVanillaClientVersionBuild(build))
                 return ClientType.Classic;
+            if (IsClassicSeasonOfMasteryClientVersionBuild(build))
+                return ClientType.ClassicSoM;
             if (IsBurningCrusadeClassicClientVersionBuild(build))
                 return ClientType.BurningCrusadeClassic;
+            if (IsWotLKClientVersionBuild(build))
+                return ClientType.WotLKClassic;
+
+            if (build >= ClientVersionBuild.V10_0_0_46181)
+                return ClientType.Dragonflight;
             if (build >= ClientVersionBuild.V9_0_1_36216)
                 return ClientType.Shadowlands;
             if (build >= ClientVersionBuild.V8_0_1_27101)
@@ -912,6 +1092,20 @@ namespace WowPacketParser.Misc
             return ClientType.WorldOfWarcraft;
         }
 
+        public static ClientBranch Branch => _branch;
+
+        private static ClientBranch GetBranch(ClientVersionBuild build)
+        {
+            if (IsClassicVanillaClientVersionBuild(build) || IsClassicSeasonOfMasteryClientVersionBuild(build))
+                return ClientBranch.Classic;
+            if (IsBurningCrusadeClassicClientVersionBuild(build))
+                return ClientBranch.TBC;
+            if (IsWotLKClientVersionBuild(build))
+                return ClientBranch.WotLK;
+
+            return ClientBranch.Retail;
+        }
+
         public static ClientVersionBuild GetVersion(DateTime time)
         {
             if (time < ClientBuilds[0].Value)
@@ -927,10 +1121,11 @@ namespace WowPacketParser.Misc
 
             ClientVersionBuild prevBuild = Build;
             Build = version;
+            _branch = GetBranch(version);
 
             Opcodes.InitializeOpcodeDictionary();
 
-            if (GetVersionDefiningBuild(prevBuild) != GetVersionDefiningBuild(Build))
+            if (Opcodes.GetOpcodeDefiningBuild(prevBuild) != Opcodes.GetOpcodeDefiningBuild(Build) || prevBuild == ClientVersionBuild.Zero)
             {
                 _expansion = GetExpansion(version);
                 Handler.ResetHandlers();
@@ -986,9 +1181,19 @@ namespace WowPacketParser.Misc
             return AddedInVersion(build1) && RemovedInVersion(build2);
         }
 
+        public static bool InVersion(ClientBranch branch, ClientVersionBuild build1, ClientVersionBuild build2)
+        {
+            return _branch == branch && InVersion(build1, build2);
+        }
+
         public static bool AddedInVersion(ClientVersionBuild build)
         {
             return Build >= build;
+        }
+
+        public static bool AddedInVersion(ClientBranch branch, ClientVersionBuild build)
+        {
+            return _branch == branch && AddedInVersion(build);
         }
 
         public static bool AddedInVersion(ClientType expansion)
@@ -999,6 +1204,11 @@ namespace WowPacketParser.Misc
         public static bool RemovedInVersion(ClientVersionBuild build)
         {
             return Build < build;
+        }
+
+        public static bool RemovedInVersion(ClientBranch branch, ClientVersionBuild build)
+        {
+            return _branch == branch && RemovedInVersion(build);
         }
 
         public static bool RemovedInVersion(ClientType expansion)
@@ -1013,7 +1223,10 @@ namespace WowPacketParser.Misc
 
         public static bool IsClassicClientVersionBuild(ClientVersionBuild build)
         {
-            return IsClassicVanillaClientVersionBuild(build) || IsBurningCrusadeClassicClientVersionBuild(build);
+            return IsClassicVanillaClientVersionBuild(build) ||
+                   IsClassicSeasonOfMasteryClientVersionBuild(build) ||
+                   IsBurningCrusadeClassicClientVersionBuild(build) ||
+                   IsWotLKClientVersionBuild(build);
         }
 
         public static bool IsClassicVanillaClientVersionBuild(ClientVersionBuild build)
@@ -1042,8 +1255,10 @@ namespace WowPacketParser.Misc
                 case ClientVersionBuild.v1_13_4_34219:
                 case ClientVersionBuild.v1_13_4_34266:
                 case ClientVersionBuild.v1_13_4_34600:
+                case ClientVersionBuild.v1_13_4_34835:
                 case ClientVersionBuild.v1_13_5_34713:
                 case ClientVersionBuild.v1_13_5_34911:
+                case ClientVersionBuild.v1_13_5_35000:
                 case ClientVersionBuild.V1_13_5_35100:
                 case ClientVersionBuild.V1_13_5_35186:
                 case ClientVersionBuild.V1_13_5_35753:
@@ -1064,9 +1279,60 @@ namespace WowPacketParser.Misc
                 case ClientVersionBuild.V1_13_7_38704:
                 case ClientVersionBuild.V1_13_7_39605:
                 case ClientVersionBuild.V1_13_7_39692:
-                {
                     return true;
-                }
+                default:
+                    return false;
+            }
+        }
+
+        public static bool IsClassicSeasonOfMasteryClientVersionBuild(ClientVersionBuild build)
+        {
+            switch (build)
+            {
+                case ClientVersionBuild.V1_14_0_39802:
+                case ClientVersionBuild.V1_14_0_39958:
+                case ClientVersionBuild.V1_14_0_40140:
+                case ClientVersionBuild.V1_14_0_40179:
+                case ClientVersionBuild.V1_14_0_40237:
+                case ClientVersionBuild.V1_14_0_40347:
+                case ClientVersionBuild.V1_14_0_40441:
+                case ClientVersionBuild.V1_14_0_40618:
+                case ClientVersionBuild.V1_14_1_40487:
+                case ClientVersionBuild.V1_14_1_40594:
+                case ClientVersionBuild.V1_14_1_40666:
+                case ClientVersionBuild.V1_14_1_40688:
+                case ClientVersionBuild.V1_14_1_40800:
+                case ClientVersionBuild.V1_14_1_40818:
+                case ClientVersionBuild.V1_14_1_40926:
+                case ClientVersionBuild.V1_14_1_40962:
+                case ClientVersionBuild.V1_14_1_41009:
+                case ClientVersionBuild.V1_14_1_41030:
+                case ClientVersionBuild.V1_14_1_41077:
+                case ClientVersionBuild.V1_14_1_41137:
+                case ClientVersionBuild.V1_14_1_41243:
+                case ClientVersionBuild.V1_14_1_41511:
+                case ClientVersionBuild.V1_14_1_41794:
+                case ClientVersionBuild.V1_14_1_42032:
+                case ClientVersionBuild.V1_14_2_41858:
+                case ClientVersionBuild.V1_14_2_41959:
+                case ClientVersionBuild.V1_14_2_42065:
+                case ClientVersionBuild.V1_14_2_42082:
+                case ClientVersionBuild.V1_14_2_42214:
+                case ClientVersionBuild.V1_14_2_42597:
+                case ClientVersionBuild.V1_14_3_42770:
+                case ClientVersionBuild.V1_14_3_42926:
+                case ClientVersionBuild.V1_14_3_43037:
+                case ClientVersionBuild.V1_14_3_43086:
+                case ClientVersionBuild.V1_14_3_43154:
+                case ClientVersionBuild.V1_14_3_43401:
+                case ClientVersionBuild.V1_14_3_43639:
+                case ClientVersionBuild.V1_14_3_44016:
+                case ClientVersionBuild.V1_14_3_44170:
+                case ClientVersionBuild.V1_14_3_44403:
+                case ClientVersionBuild.V1_14_3_44834:
+                case ClientVersionBuild.V1_14_3_45437:
+                case ClientVersionBuild.V1_14_3_46575:
+                    return true;
                 default:
                     return false;
             }
@@ -1100,9 +1366,53 @@ namespace WowPacketParser.Misc
                 case ClientVersionBuild.V2_5_2_40488:
                 case ClientVersionBuild.V2_5_2_40617:
                 case ClientVersionBuild.V2_5_2_40892:
-                {
+                case ClientVersionBuild.V2_5_2_41446:
+                case ClientVersionBuild.V2_5_2_41510:
+                case ClientVersionBuild.V2_5_3_41812:
+                case ClientVersionBuild.V2_5_3_42083:
+                case ClientVersionBuild.V2_5_3_42328:
+                case ClientVersionBuild.V2_5_3_42598:
+                case ClientVersionBuild.V2_5_4_42695:
+                case ClientVersionBuild.V2_5_4_42757:
+                case ClientVersionBuild.V2_5_4_42800:
+                case ClientVersionBuild.V2_5_4_42869:
+                case ClientVersionBuild.V2_5_4_42870:
+                case ClientVersionBuild.V2_5_4_42873:
+                case ClientVersionBuild.V2_5_4_42917:
+                case ClientVersionBuild.V2_5_4_42940:
+                case ClientVersionBuild.V2_5_4_43400:
+                case ClientVersionBuild.V2_5_4_43638:
+                case ClientVersionBuild.V2_5_4_43861:
+                case ClientVersionBuild.V2_5_4_44036:
+                case ClientVersionBuild.V2_5_4_44171:
+                case ClientVersionBuild.V2_5_4_44400:
+                case ClientVersionBuild.V2_5_4_44833:
                     return true;
-                }
+                default:
+                    return false;
+            }
+        }
+
+        public static bool IsWotLKClientVersionBuild(ClientVersionBuild build)
+        {
+            switch (build)
+            {
+                case ClientVersionBuild.V3_4_0_45166:
+                case ClientVersionBuild.V3_4_0_45189:
+                case ClientVersionBuild.V3_4_0_45264:
+                case ClientVersionBuild.V3_4_0_45327:
+                case ClientVersionBuild.V3_4_0_45435:
+                case ClientVersionBuild.V3_4_0_45572:
+                case ClientVersionBuild.V3_4_0_45613:
+                case ClientVersionBuild.V3_4_0_45704:
+                case ClientVersionBuild.V3_4_0_45772:
+                case ClientVersionBuild.V3_4_0_45854:
+                case ClientVersionBuild.V3_4_0_45942:
+                case ClientVersionBuild.V3_4_0_46158:
+                case ClientVersionBuild.V3_4_0_46182:
+                case ClientVersionBuild.V3_4_0_46248:
+                case ClientVersionBuild.V3_4_0_46368:
+                    return true;
                 default:
                     return false;
             }

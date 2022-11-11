@@ -2,7 +2,8 @@
 
 namespace WowPacketParser.Store.Objects
 {
-    public class VehicleTemplateAccessory : IDataModel
+    [DBTableName("vehicle_template_accessory")]
+    public sealed record VehicleTemplateAccessory : IDataModel
     {
         [DBFieldName("entry", true)]
         public uint? Entry;

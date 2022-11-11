@@ -34,31 +34,8 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
             uint bit84 = packet.ReadBits(6);
             gossipPOI.Name = protoPoi.Name = packet.ReadWoWString("Name", bit84);
 
-            var lastGossipOption = CoreParsers.NpcHandler.LastGossipOption;
-            var tempGossipOptionPOI = CoreParsers.NpcHandler.TempGossipOptionPOI;
-
-            lastGossipOption.ActionPoiId = gossipPOI.ID;
-            tempGossipOptionPOI.ActionPoiId = gossipPOI.ID;
-
             Storage.GossipPOIs.Add(gossipPOI, packet.TimeSpan);
-
-            if (tempGossipOptionPOI.HasSelection)
-            {
-                if ((packet.TimeSpan - tempGossipOptionPOI.TimeSpan).Duration() <= TimeSpan.FromMilliseconds(2500))
-                {
-                    if (tempGossipOptionPOI.ActionMenuId != null)
-                    {
-                        Storage.GossipMenuOptionActions.Add(new GossipMenuOptionAction { MenuId = tempGossipOptionPOI.MenuId, OptionIndex = tempGossipOptionPOI.OptionIndex, ActionMenuId = tempGossipOptionPOI.ActionMenuId, ActionPoiId = gossipPOI.ID }, packet.TimeSpan);
-                        //clear temp
-                        tempGossipOptionPOI.Reset();
-                    }
-                }
-                else
-                {
-                    lastGossipOption.Reset();
-                    tempGossipOptionPOI.Reset();
-                }
-            }
+            CoreParsers.NpcHandler.UpdateTempGossipOptionActionPOI(packet.TimeSpan, gossipPOI.ID);
         }
 
         [Parser(Opcode.SMSG_VENDOR_INVENTORY)]
@@ -105,21 +82,7 @@ namespace WowPacketParserModule.V8_0_1_27101.Parsers
         public static void HandleGossipQuestUpdate(Packet packet)
         {
             packet.ReadPackedGuid128("GossipGUID");
-
-            packet.ReadInt32<QuestId>("QuestID");
-            packet.ReadInt32("QuestType");
-            packet.ReadInt32("QuestLevel");
-            packet.ReadInt32("QuestMaxScalingLevel");
-
-            for (int i = 0; i < 2; ++i)
-                packet.ReadInt32("QuestFlags", i);
-
-            packet.ResetBitReader();
-
-            packet.ReadBit("Repeatable");
-            uint questTitleLen = packet.ReadBits(9);
-
-            packet.ReadWoWString("QuestTitle", questTitleLen);
+            V7_0_3_22248.Parsers.NpcHandler.ReadGossipQuestTextData(packet);
         }
     }
 }

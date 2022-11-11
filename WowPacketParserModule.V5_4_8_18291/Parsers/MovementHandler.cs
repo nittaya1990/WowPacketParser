@@ -1,4 +1,5 @@
-﻿using WowPacketParser.Enums;
+﻿using Google.Protobuf.WellKnownTypes;
+using WowPacketParser.Enums;
 using WowPacketParser.Misc;
 using WowPacketParser.PacketStructures;
 using WowPacketParser.Parsing;
@@ -6,6 +7,8 @@ using WowPacketParser.Proto;
 using WowPacketParserModule.V5_4_8_18291.Enums;
 using CoreOpcode = WowPacketParser.Enums.Version.Opcodes;
 using CoreParsers = WowPacketParser.Parsing.Parsers;
+using MovementFlag = WowPacketParser.Enums.v4.MovementFlag;
+using MovementFlag2 = WowPacketParser.Enums.v4.MovementFlag2;
 
 namespace WowPacketParserModule.V5_4_8_18291.Parsers
 {
@@ -208,7 +211,7 @@ namespace WowPacketParserModule.V5_4_8_18291.Parsers
                         break;
                     case MovementStatusElements.MSEMovementFlags2:
                         if (hasMovementFlags2)
-                            packet.ReadBitsE<MovementFlagExtra>("Extra Movement Flags", 13);
+                            packet.ReadBitsE<MovementFlag2>("Extra Movement Flags", 13);
                         break;
                     case MovementStatusElements.MSETimestamp:
                         if (hasTimestamp)
@@ -477,7 +480,7 @@ namespace WowPacketParserModule.V5_4_8_18291.Parsers
         public static void HandlePhaseShift(Packet packet)
         {
             var phaseShift = packet.Holder.PhaseShift = new PacketPhaseShift();
-            CoreParsers.MovementHandler.ActivePhases.Clear();
+            CoreParsers.MovementHandler.ClearPhases();
 
             var guid = packet.StartBitStream(0, 3, 1, 4, 6, 2, 7, 5);
             packet.ParseBitStream(guid, 4, 3, 2);
@@ -509,7 +512,9 @@ namespace WowPacketParserModule.V5_4_8_18291.Parsers
             packet.ParseBitStream(guid, 5);
             phaseShift.Client = packet.WriteGuid("GUID", guid);
 
-            packet.ReadUInt32("Flags:");
+            packet.ReadUInt32("Flags");
+
+            CoreParsers.MovementHandler.WritePhaseChanges(packet);
         }
 
         [Parser(Opcode.SMSG_TRANSFER_PENDING)]
@@ -765,11 +770,12 @@ namespace WowPacketParserModule.V5_4_8_18291.Parsers
         [Parser(Opcode.SMSG_LOGIN_SET_TIME_SPEED)]
         public static void HandleLoginSetTimeSpeed(Packet packet)
         {
+            PacketLoginSetTimeSpeed setTime = packet.Holder.LoginSetTimeSpeed = new();
             packet.ReadInt32("Unk Int32");
-            packet.ReadPackedTime("Game Time");
+            setTime.GameTime = packet.ReadPackedTime("Game Time").ToUniversalTime().ToTimestamp();
             packet.ReadInt32("Unk Int32");
             packet.ReadInt32("Unk Int32");
-            packet.ReadSingle("Game Speed");
+            setTime.NewSpeed = packet.ReadSingle("Game Speed");
         }
 
         [Parser(Opcode.SMSG_MOVE_SET_RUN_BACK_SPEED)]

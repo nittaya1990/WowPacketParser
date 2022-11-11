@@ -1,9 +1,12 @@
-﻿using WowPacketParser.Enums;
+﻿using Google.Protobuf.WellKnownTypes;
+using WowPacketParser.Enums;
 using WowPacketParser.Misc;
 using WowPacketParser.PacketStructures;
 using WowPacketParser.Parsing;
 using WowPacketParser.Proto;
 using CoreParsers = WowPacketParser.Parsing.Parsers;
+using MovementFlag = WowPacketParser.Enums.v4.MovementFlag;
+using MovementFlag2 = WowPacketParser.Enums.v4.MovementFlag2;
 
 namespace WowPacketParserModule.V5_4_2_17658.Parsers
 {
@@ -60,7 +63,7 @@ namespace WowPacketParserModule.V5_4_2_17658.Parsers
             var bits98 = (int)packet.ReadBits(22);
 
             if (hasExtraMovementFlags)
-                packet.ReadBitsE<MovementFlagExtra>("Extra Movement Flags", 13);
+                packet.ReadBitsE<MovementFlag2>("Extra Movement Flags", 13);
 
             var bitAC = packet.ReadBit();
 
@@ -266,7 +269,7 @@ namespace WowPacketParserModule.V5_4_2_17658.Parsers
                 {
                     endpos = spot;
                 }
-                
+
                 monsterMove.Points.Add(spot);
                 packet.AddValue("Spline Waypoint", spot, i);
             }
@@ -398,10 +401,11 @@ namespace WowPacketParserModule.V5_4_2_17658.Parsers
         [Parser(Opcode.SMSG_LOGIN_SET_TIME_SPEED)]
         public static void HandleLoginSetTimeSpeed(Packet packet)
         {
+            PacketLoginSetTimeSpeed setTime = packet.Holder.LoginSetTimeSpeed = new();
             packet.ReadInt32("Unk Int32");
             packet.ReadInt32("Unk Int32");
-            packet.ReadPackedTime("Game Time");
-            packet.ReadSingle("Game Speed");
+            setTime.GameTime = packet.ReadPackedTime("Game Time").ToUniversalTime().ToTimestamp();
+            setTime.NewSpeed = packet.ReadSingle("Game Speed");
 
             packet.ReadInt32("Unk Int32");
         }
@@ -647,7 +651,7 @@ namespace WowPacketParserModule.V5_4_2_17658.Parsers
             }
 
             if (hasMovementFlagsExtra)
-                packet.ReadBitsE<MovementFlagExtra>("Extra Movement Flags", 13);
+                packet.ReadBitsE<MovementFlag2>("Extra Movement Flags", 13);
 
             if (hasFallData)
                 hasFallDirection = packet.ReadBit();
@@ -785,7 +789,7 @@ namespace WowPacketParserModule.V5_4_2_17658.Parsers
             var hasMovementFlag = !packet.ReadBit();
 
             if (hasMovementFlagExtra)
-                packet.ReadBitsE<MovementFlagExtra>("Extra Movement Flags", 13);
+                packet.ReadBitsE<MovementFlag2>("Extra Movement Flags", 13);
 
             if (hasTrans)
             {
@@ -887,7 +891,7 @@ namespace WowPacketParserModule.V5_4_2_17658.Parsers
         public static void HandlePhaseShift(Packet packet)
         {
             var phaseShift = packet.Holder.PhaseShift = new PacketPhaseShift();
-            CoreParsers.MovementHandler.ActivePhases.Clear();
+            CoreParsers.MovementHandler.ClearPhases();
 
             var guid = packet.StartBitStream(7, 5, 0, 4, 3, 1, 6, 2);
             packet.ParseBitStream(guid, 4, 5, 2);
@@ -928,6 +932,8 @@ namespace WowPacketParserModule.V5_4_2_17658.Parsers
             packet.ParseBitStream(guid, 6);
 
             phaseShift.Client = packet.WriteGuid("GUID", guid);
+
+            CoreParsers.MovementHandler.WritePhaseChanges(packet);
         }
 
         [Parser(Opcode.SMSG_CONTROL_UPDATE)]
@@ -940,6 +946,35 @@ namespace WowPacketParserModule.V5_4_2_17658.Parsers
             packet.ParseBitStream(guid, 5, 2, 6, 4, 7, 0, 3, 1);
 
             packet.WriteGuid("Guid", guid);
+        }
+
+        [Parser(Opcode.SMSG_MOVE_APPLY_MOVEMENT_FORCE)]
+        public static void HandleMoveApplyMovementForce(Packet packet)
+        {
+            var pos = new Vector3();
+
+            packet.ReadSingle("Magnitude");
+            packet.ReadUInt32("ID");
+            packet.ReadUInt32("SequenceIndex");
+            pos.Z = packet.ReadSingle();
+            pos.Y = packet.ReadSingle();
+            pos.X = packet.ReadSingle();
+            packet.ReadUInt32("TransportID");
+
+            var guid = new byte[8];
+            guid[2] = packet.ReadBit();
+            guid[5] = packet.ReadBit();
+            guid[3] = packet.ReadBit();
+            packet.ReadBits("Type", 2);
+            guid[1] = packet.ReadBit();
+            guid[0] = packet.ReadBit();
+            guid[7] = packet.ReadBit();
+            guid[6] = packet.ReadBit();
+            guid[4] = packet.ReadBit();
+
+            packet.ParseBitStream(guid, 3, 7, 2, 5, 0, 4, 1, 6);
+            packet.WriteGuid("Guid", guid);
+            packet.AddValue("Direction", pos);
         }
     }
 }
